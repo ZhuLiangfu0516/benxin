@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>管理</title>
+<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="../bootstrap/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="../bootstrap/css/bootstrap-button.css">
+<script src="../jquery/jquery-1.11.3.js"></script>		
+<script src="../bootstrap/js/bootstrap.min.js"></script>		
+<script src="../angularjs/angular.min.js"></script>
+<!-- 分页组件开始 -->
+<!--<script src="../angularjs/pagination.js"></script>
+<link rel="stylesheet" href="../angularjs/pagination.css">-->
+<!-- 分页组件结束 -->
+<script src="../js/main.js"></script>
+<script src="../js/service/userService.js"></script>
+<script src="../js/controller/userController.js"></script>
+</head>
+<body>
+<div ng-app="appController" ng-controller="user">
+<a href="#" data-toggle="modal" data-target="#editWindow" ng-click='clear()'>增加</a>
+<table class="table table-bordered table-striped">
+	<tr>
+<td>用户名,也就是手机号</td>
+<td>用户密码</td>
+<td>用户id</td>
+
+		<td>操作</td>	
+	</tr>
+	<tr ng-repeat="info in listdata">
+		<td>{{info.username}}</td>
+		<td>{{info.password}}</td>
+		<td>{{info.id}}</td>
+	
+		<td>
+			<a href="#" ng-click="get(info.id)" 
+				data-toggle="modal" data-target="#editWindow" >修改</a>
+			<a href="#" ng-click="dele(info.id)">删除</a>
+		</td>	
+	</tr>
+</table>
+<!-- 分页 -->
+<tm-pagination conf="paginationConf"></tm-pagination>
+
+<!-- 弹出编辑窗口开始 -->
+<div class="modal fade" id="editWindow" tabindex="-1" role="dialog" 
+   aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+         	<b>编辑</b>
+         </div>
+         <div class="modal-body">
+<input  ng-model="entity.id" type="hidden" >
+				<table class="table table-bordered table-striped">
+			<tr>
+				<td>用户名,也就是手机号</td><td><input class="form-control" ng-model="entity.username"></td>
+			</tr>
+			<tr>
+				<td>用户密码</td><td><input class="form-control" ng-model="entity.password"></td>
+			</tr>
+				</table>
+         </div>
+         <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="save()">保存</button>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- 弹出编辑窗口结束 -->
+</div>
+</body>
+</html>

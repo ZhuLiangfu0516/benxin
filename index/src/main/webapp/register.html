@@ -1,0 +1,73 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+<title>会员注册</title>
+    <link rel="icon" href="assetc/img/favicon.ico">
+
+    <link rel="stylesheet" href="css/base.css">
+    <script src="js/html5shiv.js"></script>
+    <script src="js/jquery-1.12.3.min.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+  <!--  <script src="jquery/jquery-1.11.3.js"></script>-->
+    <script src="angularjs/angular.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/service/userService.js"></script>
+    <script src="js/controller/userController.js"></script>
+</head>
+
+<body id="login_body" ng-app="appController" ng-controller="userController">
+
+<div class="login_top_btn"><a class="btn" href="login.html">立即登录</a></div>
+<section class="reg_box">
+	<form class="login-form" action="#" method="post">
+                   		<div class="logo_icon"></div>
+						<div class="logo_text">【会员注册】</div>
+       <div class="form_body">
+          <div class="control-group">
+            <label class="control-label" for="username">手机号:</label>
+            <div class="controls">
+              <input type="text" id="username" class="span3" placeholder="手机号:" nullmsg="手机号" ng-model="entity.username" name="username">
+            </div>
+          </div>
+           <div>
+               <label class="control-label" for="code">验证码:</label>
+               <div class="code">
+                   <input id="code" type="text" autocomplete="off" ng-model="entity.code" placeholder="短信验证码:"/>
+                   <label class="control-label">&nbsp;</label>
+                   <input id="btnSendCode"  class="btn btn-large" type="button" ng-click="sendSms()" value="获取验证码" onClick="sendMessage()">
+               </div>
+           </div>
+          <div class="control-group">
+            <label class="control-label" for="inputPassword">密 码</label>
+            <div class="controls">
+              <input type="password" id="inputPassword" ng-model="entity.password1"  class="span3" placeholder="请输入密码:" nullmsg="请填写密码" name="password">
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="repassword">确认密码</label>
+            <div class="controls">
+              <input type="password" id="repassword" ng-model="entity.password2" class="span3" placeholder="请再次输入密码:" nullmsg="请填确认密码" name="repassword">
+            </div>
+          </div>
+
+          <div class="control-group">
+          	<label class="control-label">&nbsp;</label>
+            <div class="controls">
+              <button type="button" ng-click="regist()" class="btn btn-large">注 册</button>
+            </div>
+          </div>
+      </div>
+    </form>
+</section>
+
+<!--<script type="text/javascript">-->
+    <!---->
+    <!---->
+
+
+
+<!--</script>-->
+
+</body>
+</html>
